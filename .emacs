@@ -6,7 +6,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -33,9 +33,13 @@
 (add-hook 'objc-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'irony-mode-hook #'irony-eldoc)
 
 (global-set-key (kbd "C-SPC") 'company-complete)
 (global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
 
 (company-quickhelp-mode)
 
@@ -51,3 +55,4 @@
 (require 'drag-stuff)
 (drag-stuff-global-mode 1)
 (drag-stuff-define-keys)
+
