@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company))))
+    (sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+ '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,3 +36,4 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (global-set-key (kbd "C-SPC") 'company-complete)
+(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
