@@ -59,3 +59,4 @@
 (drag-stuff-global-mode 1)
 (drag-stuff-define-keys)
 
+(setq vc-follow-symlinks nil)
