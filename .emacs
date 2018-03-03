@@ -4,6 +4,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cmake-ide-build-dir "./emacs-cmake-build")
+ '(cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug")
+ '(cmake-ide-compile-command "cd emacs-cmake-build; make")
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
