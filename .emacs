@@ -43,7 +43,7 @@
 (global-set-key (kbd "<f8>") 'neotree-toggle)
 
 (eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
+  '(add-to-list 'company-backends 'company-rtags))
 
 (company-quickhelp-mode)
 
