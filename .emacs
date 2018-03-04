@@ -17,6 +17,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;; MELPA csomagforrás
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -31,6 +34,10 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+
+;; Módok, amiket be kell kapcsolni, ha C++-t szerkesztünk
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'objc-mode-hook 'irony-mode)
@@ -38,33 +45,33 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'irony-mode-hook #'irony-eldoc)
 
-(global-set-key (kbd "C-SPC") 'company-complete)
-;;(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
-(global-set-key (kbd "<f8>") 'neotree-toggle)
-
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
-
-(company-quickhelp-mode)
-
+;; Állandóan bekapcsolt módok
 (require 'rtags) ;; optional, must have rtags installed
 (cmake-ide-setup)
 (eval-after-load 'company
   '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+
+(company-quickhelp-mode)
+
+(require 'drag-stuff)
+(drag-stuff-global-mode 1)
+(drag-stuff-define-keys)
 
 ;; Automatikusan behozza a bal oldali outline sávot
 (setq sr-speedbar-width 12)
 ;;(sr-speedbar-toggle)
 (neotree)
 
-(require 'drag-stuff)
-(drag-stuff-global-mode 1)
-(drag-stuff-define-keys)
+
+;; Néhány Emacs finomhangolás
 
 (setq vc-follow-symlinks nil)
-
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq default-tab-width 4)
 (setq indent-line-function 'insert-tab)
 (setq-default c-basic-offset 4)
+
+(global-set-key (kbd "C-SPC") 'company-complete)
+;;(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
