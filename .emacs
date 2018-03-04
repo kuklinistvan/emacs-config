@@ -35,7 +35,8 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
+  '(add-to-list
+    'company-backends '(company-irony-c-headers company-irony)))
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
