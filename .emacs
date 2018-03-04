@@ -39,7 +39,8 @@
 (add-hook 'irony-mode-hook #'irony-eldoc)
 
 (global-set-key (kbd "C-SPC") 'company-complete)
-(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+;;(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
 
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
@@ -53,7 +54,8 @@
 
 ;; Automatikusan behozza a bal oldali outline sávot
 (setq sr-speedbar-width 12)
-(sr-speedbar-toggle)
+;;(sr-speedbar-toggle)
+(neotree)
 
 (require 'drag-stuff)
 (drag-stuff-global-mode 1)
