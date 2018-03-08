@@ -53,6 +53,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'irony-mode-hook #'irony-eldoc)
 (add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
 
 ;; Állandóan bekapcsolt módok
 (require 'rtags) ;; optional, must have rtags installed
