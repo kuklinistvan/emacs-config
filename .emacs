@@ -90,6 +90,8 @@
 (setq indent-line-function 'insert-tab)
 (setq-default c-basic-offset 4)
 
+(ido-mode)
+
 (global-set-key (kbd "C-SPC") 'company-complete)
 ;;(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
 (global-set-key (kbd "<f8>") 'neotree-toggle)
