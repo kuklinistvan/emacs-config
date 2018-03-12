@@ -3,13 +3,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cmake-ide-build-dir "./emacs-cmake-build")
+ '(cmake-ide-build-dir "./")
  '(cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug")
- '(cmake-ide-compile-command "cd emacs-cmake-build; make")
- '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(cmake-ide-compile-command "make")
+ '(ecb-options-version "2.50")
+ '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
+ '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -76,7 +78,7 @@
 ;; Automatikusan behozza a bal oldali outline sávot
 (setq sr-speedbar-width 12)
 ;;(sr-speedbar-toggle)
-(neotree)
+;;(neotree)
 
 (cmake-mode)
 
@@ -93,5 +95,5 @@
 (ido-mode)
 
 (global-set-key (kbd "C-SPC") 'company-complete)
-;;(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
-(global-set-key (kbd "<f8>") 'neotree-toggle)
+(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+;;(global-set-key (kbd "<f8>") 'neotree-toggle)
