@@ -85,7 +85,7 @@
 
 ;; Néhány Emacs finomhangolás
 
-(setq vc-follow-symlinks nil)
+;; (setq vc-follow-symlinks nil)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq default-tab-width 4)
@@ -97,3 +97,8 @@
 (global-set-key (kbd "C-SPC") 'company-complete)
 (global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
 ;;(global-set-key (kbd "<f8>") 'neotree-toggle)
+
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
