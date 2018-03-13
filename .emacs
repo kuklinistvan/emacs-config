@@ -11,7 +11,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -102,3 +102,14 @@
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;; M-x ido-mode
+(global-set-key
+ "\M-x"
+ (lambda ()
+   (interactive)
+   (call-interactively
+    (intern
+     (ido-completing-read
+      "M-x "
+      (all-completions "" obarray 'commandp))))))
