@@ -114,4 +114,5 @@
       "M-x "
       (all-completions "" obarray 'commandp))))))
 
-(global-git-gutter-mode)
+(global-diff-hl-mode)
+(global-visual-line-mode)
