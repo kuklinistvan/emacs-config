@@ -6,12 +6,16 @@
  '(cmake-ide-build-dir "./")
  '(cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug")
  '(cmake-ide-compile-command "make")
+ '(custom-enabled-themes (quote (blackboard)))
+ '(custom-safe-themes
+   (quote
+    ("d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
  '(ecb-options-version "2.50")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -20,6 +24,7 @@
  ;; If there is more than one, they won't work right.
  )
 
+(add-hook 'after-init-hook (lambda () (load-theme 'blackboard)))
 
 ;; MELPA csomagforrás
 (require 'package)
