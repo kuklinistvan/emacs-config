@@ -113,6 +113,7 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
 (define-key c++-mode-map (kbd "C-j") 'rtags-find-symbol-at-point)
+(define-key c++-mode-map (kbd "C-x j") 'moo-jump-local)
 
 ;; M-x ido-mode
 (global-set-key
