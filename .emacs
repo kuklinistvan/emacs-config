@@ -90,6 +90,7 @@
 
 (cmake-mode)
 
+(global-semantic-stickyfunc-mode)
 
 ;; Néhány Emacs finomhangolás
 
