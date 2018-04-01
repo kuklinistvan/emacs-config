@@ -112,6 +112,8 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
+(define-key c++-mode-map (kbd "C-j") 'rtags-find-symbol-at-point)
+
 ;; M-x ido-mode
 (global-set-key
  "\M-x"
