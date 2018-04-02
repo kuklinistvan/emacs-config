@@ -18,6 +18,7 @@
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(inhibit-startup-screen t)
  '(magit-diff-refine-hunk (quote all))
+ '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
     (helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
