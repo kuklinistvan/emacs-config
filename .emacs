@@ -13,6 +13,7 @@
  '(ecb-options-version "2.50")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(inhibit-startup-screen t)
+ '(magit-diff-refine-hunk (quote all))
  '(package-selected-packages
    (quote
     (helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
@@ -36,6 +37,9 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync)
 
+(el-get-bundle hide-comnt)
+(el-get-bundle fixme-mode)
+  
 (add-hook 'after-init-hook (lambda () (load-theme 'blackboard)))
 
 ;; MELPA csomagforrás
