@@ -22,6 +22,7 @@
  '(package-selected-packages
    (quote
     (helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -135,6 +136,15 @@
 
 (define-key c++-mode-map (kbd "C-j") 'rtags-find-symbol-at-point)
 (define-key c++-mode-map (kbd "C-x j") 'moo-jump-local)
+
+(add-hook 'python-mode-hook
+          (lambda()
+            (local-set-key (kbd "C-j") 'jedi:goto-definition)))
+(add-hook 'python-mode-hook
+          (lambda()
+            (local-set-key (kbd "C-x j") 'helm-ag-this-file)))
+
+;;(define-key python-mode-map (kbd "C-x j") 'helm-ag-this-file)
 
 ;; M-x ido-mode
 (global-set-key
