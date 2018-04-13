@@ -158,3 +158,6 @@
 (global-visual-line-mode)
 (require 'all-the-icons)
 (zerodark-setup-modeline-format)
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
