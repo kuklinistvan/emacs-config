@@ -15,11 +15,12 @@
  '(ecb-options-version "2.50")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(inhibit-startup-screen t)
+ '(latex-preview-pane-use-frame t)
  '(magit-diff-refine-hunk (quote all))
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
-    (all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
  '(sr-speedbar-right-side nil))
@@ -161,3 +162,17 @@
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+(require 'company-auctex)
+(company-auctex-init)
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+(setq auctex-latexmk-inherit-TeX-PDF-mode t)
+
+(latex-preview-pane-enable)
