@@ -17,6 +17,7 @@
  '(inhibit-startup-screen t)
  '(latex-preview-pane-use-frame t)
  '(magit-diff-refine-hunk (quote all))
+ '(neo-theme (quote icons))
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
@@ -125,7 +126,7 @@
 (ido-mode)
 
 (global-set-key (kbd "C-SPC") 'company-complete)
-(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
 ;;(global-set-key (kbd "<f8>") 'neotree-toggle)
 
 (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
