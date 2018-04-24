@@ -18,6 +18,7 @@
  '(latex-preview-pane-use-frame t)
  '(magit-diff-refine-hunk (quote all))
  '(neo-theme (quote icons))
+ '(neo-vc-integration (quote (face char)))
  '(neo-window-fixed-size nil)
  '(org-support-shift-select (quote always))
  '(package-selected-packages
