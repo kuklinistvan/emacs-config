@@ -17,6 +17,7 @@
  '(inhibit-startup-screen t)
  '(latex-preview-pane-use-frame t)
  '(magit-diff-refine-hunk (quote all))
+ '(neo-autorefresh t)
  '(neo-theme (quote icons))
  '(neo-vc-integration (quote (face char)))
  '(neo-window-fixed-size nil)
