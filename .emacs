@@ -7,7 +7,7 @@
    [default default default italic underline success warning error])
  '(cmake-ide-build-dir "./")
  '(cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug")
- '(cmake-ide-compile-command "make")
+ '(cmake-ide-compile-command "make -j8")
  '(custom-enabled-themes (quote (zerodark)))
  '(custom-safe-themes
    (quote
@@ -74,7 +74,7 @@
 
 (eval-after-load 'company
   '(add-to-list
-    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern)))
+    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern company-web-complete-css)))
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
