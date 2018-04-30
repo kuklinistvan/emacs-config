@@ -7,7 +7,7 @@
    [default default default italic underline success warning error])
  '(cmake-ide-build-dir "./")
  '(cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug")
- '(cmake-ide-compile-command "make -j8")
+ '(cmake-ide-compile-command "make")
  '(custom-enabled-themes (quote (zerodark)))
  '(custom-safe-themes
    (quote
