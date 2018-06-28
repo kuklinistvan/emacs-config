@@ -25,7 +25,7 @@
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
-    (hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
  '(sr-speedbar-right-side nil))
@@ -242,3 +242,6 @@
     ("i" dumb-jump-go-prompt "Prompt")
     ("l" dumb-jump-quick-look "Quick look")
     ("b" dumb-jump-back "Back"))
+
+(setenv "GOPATH"
+        (concat (getenv "HOME") "/go"))
