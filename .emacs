@@ -25,7 +25,7 @@
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
-    (wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (go-projectile wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
  '(sr-speedbar-right-side nil))
@@ -65,6 +65,12 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+(projectile-global-mode 1)
+(require 'go-projectile)
+(go-projectile-tools-add-path)
+(setq gofmt-command (concat go-projectile-tools-path "/bin/goimports"))
+
 
 (require 'company)                                   ; load company mode
 (require 'company-web-html)                          ; load company mode html backend
