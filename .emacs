@@ -255,3 +255,5 @@
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
+(setq neo-force-change-root t)
