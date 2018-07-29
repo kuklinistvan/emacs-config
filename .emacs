@@ -28,7 +28,7 @@
     (meghanada json-mode spacemacs-theme go-projectile wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
- '(sr-speedbar-right-side nil))
+ '(sr-speedbar-default-width 80))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -129,11 +129,6 @@
 
 (fa-config-default)
 
-;; Automatikusan behozza a bal oldali outline sávot
-(setq sr-speedbar-width 12)
-;;(sr-speedbar-toggle)
-;;(neotree)
-
 (cmake-mode)
 
 (global-semantic-stickyfunc-mode)
@@ -151,6 +146,7 @@
 
 (global-set-key (kbd "C-SPC") 'company-complete)
 (global-set-key (kbd "<f8>") 'neotree-toggle)
+(global-set-key (kbd "<f9>") 'sr-speedbar-toggle)
 ;;(global-set-key (kbd "<f8>") 'neotree-toggle)
 
 (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
@@ -288,3 +284,6 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll widow under mouse
 
 
+(setq sr-speedbar-width 20)
+
+(setq-default cursor-type 'bar) 
