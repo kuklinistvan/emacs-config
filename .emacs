@@ -81,7 +81,7 @@
 
 (eval-after-load 'company
   '(add-to-list
-    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern company-web-complete-css)))
+    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern company-web-complete-css company-yasnippet)))
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
@@ -182,7 +182,6 @@
 (require 'all-the-icons)
 (zerodark-setup-modeline-format)
 
-(menu-bar-mode -1)
 (tool-bar-mode -1)
 
 (require 'company-auctex)
@@ -289,3 +288,5 @@
 (setq-default cursor-type 'bar) 
 
 (elpy-enable)
+
+(global-set-key (kbd "C-c m") 'mc/mark-next-like-this)
