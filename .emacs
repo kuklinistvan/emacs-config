@@ -25,7 +25,7 @@
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
-    (yaml-mode meghanada json-mode spacemacs-theme go-projectile wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
+    (elpy yaml-mode meghanada json-mode spacemacs-theme go-projectile wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
  '(sr-speedbar-default-width 80))
@@ -81,7 +81,7 @@
 
 (eval-after-load 'company
   '(add-to-list
-    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern company-web-complete-css)))
+    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern company-web-complete-css company-yasnippet)))
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
@@ -182,7 +182,6 @@
 (require 'all-the-icons)
 (zerodark-setup-modeline-format)
 
-(menu-bar-mode -1)
 (tool-bar-mode -1)
 
 (require 'company-auctex)
@@ -287,3 +286,7 @@
 (setq sr-speedbar-width 20)
 
 (setq-default cursor-type 'bar) 
+
+(elpy-enable)
+
+(global-set-key (kbd "C-c m") 'mc/mark-next-like-this)
