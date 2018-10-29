@@ -256,8 +256,13 @@
         (concat (getenv "HOME") "/go"))
 
 (setq frame-title-format
-      (list (format "%s %%S: %%j " (system-name))
-        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (file-name-nondirectory buffer-file-name))
+                 "%b"))
+        (:eval (if (buffer-modified-p) 
+                   " •"))
+        " - Emacs")
+      )
 
 (setq neo-force-change-root t)
 
