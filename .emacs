@@ -32,6 +32,8 @@ There are two things you can do about this warning:
  '(custom-safe-themes
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(dashboard-banner-logo-title "István's .emacs - codekuklin.com")
+ '(dashboard-startup-banner "~/.emacs.d/ki_green.png")
  '(helm-mode-fuzzy-match t)
  '(inhibit-startup-screen t)
  '(lsp-eldoc-render-all nil)
