@@ -19,6 +19,33 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
+(defun display-startup-echo-area-message ()
+  (message "Billentyűkiosztás: C-h b"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(cmake-ide-flags-c++ "-j4")
+ '(company-minimum-prefix-length 2)
+ '(helm-mode-fuzzy-match t)
+ '(inhibit-startup-screen t)
+ '(lsp-eldoc-render-all nil)
+ '(lsp-enable-file-watchers t)
+ '(lsp-file-watch-threshold 10000000000)
+ '(lsp-prefer-flymake nil)
+ '(package-selected-packages
+   (quote
+    (treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+ '(treemacs-position (quote right)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
 ;; MELPA VÉGE
 
 
@@ -67,31 +94,6 @@ There are two things you can do about this warning:
 
 
 
-(defun display-startup-echo-area-message ()
-  (message "Billentyűkiosztás: C-h b"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(cmake-ide-flags-c++ "-j4")
- '(company-minimum-prefix-length 2)
- '(helm-mode-fuzzy-match t)
- '(inhibit-startup-screen t)
- '(lsp-eldoc-render-all nil)
- '(lsp-enable-file-watchers t)
- '(lsp-file-watch-threshold 10000000000)
- '(lsp-prefer-flymake nil)
- '(package-selected-packages
-   (quote
-    (treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
- '(treemacs-position (quote right)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 
 (add-hook 'after-init-hook 'global-company-mode)
