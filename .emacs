@@ -1,39 +1,91 @@
+;; MELPA
+
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
+
+;; MELPA VÉGE
+
+
+;; ERGONOMIKUS BILLENTYŰ KIOSZTÁS
+
+
+
+(bind-key* (kbd "C-s") 'save-buffer)
+(bind-key* (kbd "C-v") 'yank)
+(bind-key* (kbd "C-x") 'kill-region)
+(bind-key* (kbd "C-c") 'kill-ring-save)
+
+(bind-key* (kbd "C-n") 'make-frame-command)
+(bind-key* (kbd "C-o") 'find-file)
+
+(bind-key* (kbd "C-z") 'undo-tree-undo)
+(bind-key* (kbd "C-y") 'undo-tree-redo)
+
+(bind-key* (kbd "C-f") 'isearch-forward)
+(bind-key* (kbd "C-g") 'isearch-backward)
+
+(bind-key* (kbd "<M-left>") 'previous-buffer)
+(bind-key* (kbd "<M-right>") 'next-buffer)
+
+(bind-key* (kbd "C-w") 'kill-this-buffer)
+
+(bind-key* (kbd "C-b") 'list-buffers)
+
+
+(bind-key* (kbd "<f4>") 'ff-find-other-file)
+(bind-key* (kbd "<f5>") 'helm-projectile-ag)
+(bind-key* (kbd "<f6>") 'fzf-projectile)
+(bind-key* (kbd "<f8>") 'treemacs)
+
+(bind-key* (kbd "<f10>") 'split-window-below)
+(bind-key* (kbd "<f11>") 'split-window-right)
+(bind-key* (kbd "<f12>") 'delete-window)
+
+
+(bind-key* (kbd "<C-SPC>") 'company-complete)
+
+(bind-key* (kbd "<M-up>") 'lsp-signature-next)
+(bind-key* (kbd "<M-down>") 'lsp-signature-previous)
+
+;; ERGONOMIKUS BILLENTYŰ KIOSZTÁS VÉGE
+
+
+
+(defun display-startup-echo-area-message ()
+  (message "Billentyűkiosztás: C-h b"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(cmake-ide-build-dir "./")
- '(cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug")
- '(cmake-ide-compile-command "make")
- '(custom-enabled-themes (quote (zerodark)))
- '(custom-safe-themes
-   (quote
-    ("51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bce3ae31774e626dce97ed6d7781b4c147c990e48a35baedf67e185ebc544a56" "8ec2e01474ad56ee33bc0534bdbe7842eea74dccfb576e09f99ef89a705f5501" "28ccfceab51a8d7e53bf5b35a788966a06b3ac6ca06fd96ec62a22ee3caa05cf" "d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
- '(dumb-jump-mode t)
- '(ecb-options-version "2.50")
- '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
- '(elpy-modules
-   (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults)))
+ '(cmake-ide-flags-c++ "-j4")
+ '(company-minimum-prefix-length 2)
+ '(helm-mode-fuzzy-match t)
  '(inhibit-startup-screen t)
- '(js-indent-level 2)
- '(latex-preview-pane-use-frame t)
- '(magit-diff-refine-hunk (quote all))
- '(neo-autorefresh t)
- '(neo-theme (quote icons))
- '(neo-vc-integration (quote (face char)))
- '(neo-window-fixed-size nil)
- '(org-support-shift-select (quote always))
+ '(lsp-eldoc-render-all nil)
+ '(lsp-enable-file-watchers t)
+ '(lsp-file-watch-threshold 10000000000)
+ '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (elpy yaml-mode meghanada json-mode spacemacs-theme go-projectile wgrep godoctor hydra dumb-jump go-rename indium js2-mode company-tern restart-emacs company-web web-mode company-shell go-guru flycheck-gometalinter company-go go-mode latex-preview-pane auctex-latexmk company-auctex auctex all-the-icons-ivy all-the-icons-gnus all-the-icons-dired zerodark-theme clues-theme jedi-direx helm-ag unicode-fonts markdown-mode blackboard-theme dracula-theme el-get hideshow-org git-gutter diff-hl srefactor ecb company-jedi cmake-mode function-args imenu-list helm-rtags magit company-irony-c-headers company-c-headers drag-stuff company-quickhelp sr-speedbar neotree irony-eldoc flycheck-irony company-rtags company-irony cmake-ide flycheck-rtags flycheck company)))
- '(powerline-color1 "#222232")
- '(powerline-color2 "#333343")
- '(sr-speedbar-default-width 80)
- '(web-mode-markup-indent-offset 2))
+    (treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+ '(treemacs-position (quote right)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,262 +93,115 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
-
-(el-get-bundle hide-comnt)
-(el-get-bundle fixme-mode)
-
-;; MELPA csomagforrás
-(require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
-(package-initialize)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
-(projectile-global-mode 1)
-(require 'go-projectile)
-(go-projectile-tools-add-path)
-(setq gofmt-command (concat go-projectile-tools-path "/bin/goimports"))
-
-
-(require 'company)                                   ; load company mode
-(require 'company-web-html)                          ; load company mode html backend
-;; and/or
-(require 'company-web-jade)                          ; load company mode jade backend
-(require 'company-web-slim)                          ; load company mode slim backend
-(require 'company-tern)
-
-(eval-after-load 'company
-  '(add-to-list
-    'company-backends '(company-irony-c-headers company-irony company-cmake company-jedi company-go company-shell company-shell-env company-fish-shell company-css-html-tags company-web company-web-html company-tern company-web-complete-css company-yasnippet)))
-
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
-
-;; Módok, amiket be kell kapcsolni, ha C++-t szerkesztünk
-(setq irony-additional-clang-options '("-std=c++11"))
-
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
-
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++17")))
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++17")))
-(add-hook 'c++-mode-hook 'flycheck-mode)
-(add-hook 'c++-mode-hook 'imenu-add-menubar-index)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'flycheck-mode)
-(add-hook 'c-mode-hook 'imenu-add-menubar-index)
-(add-hook 'objc-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'irony-mode-hook #'irony-eldoc)
-(add-hook 'go-mode-hook 'flycheck-mode)
-(add-hook 'html-mode-hook 'web-mode)
-(add-hook 'js2-mode-hook (lambda ()
-                           (tern-mode)
-                           (company-mode)))
-
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
-
-;; Állandóan bekapcsolt módok
-(require 'rtags) ;; optional, must have rtags installed
-(cmake-ide-setup)
-(eval-after-load 'company
-  '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
 
 (company-quickhelp-mode)
 
-(require 'drag-stuff)
-(drag-stuff-global-mode 1)
-(drag-stuff-define-keys)
+;; (cmake-ide-setup)
 
-(require 'helm-config)
-(setq rtags-use-helm t)
 
-(fa-config-default)
+(add-to-list 'company-backends 'company-c-headers)
+;; (add-to-list 'company-backends 'company-clang)
 
-(cmake-mode)
+(setq-default cursor-type 'bar)
 
-(global-semantic-stickyfunc-mode)
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++17")))
 
-;; Néhány Emacs finomhangolás
+;; https://emacs.stackexchange.com/questions/13127/disable-specific-warning-in-flycheck-specifically-pragma-once-in-main-file?noredirect=1&lq=1
+(with-eval-after-load "flycheck"
+    (setq flycheck-clang-warnings `(,@flycheck-clang-warnings
+                                    "no-pragma-once-outside-header")))
 
-;; (setq vc-follow-symlinks nil)
-(setq-default indent-tabs-mode nil)
+
+
 (setq-default tab-width 4)
-(setq default-tab-width 4)
-(setq indent-line-function 'insert-tab)
 (setq-default c-basic-offset 4)
 
-(ido-mode)
-
-(global-set-key (kbd "C-SPC") 'company-complete)
-(global-set-key (kbd "<f8>") 'neotree-toggle)
-(global-set-key (kbd "<f9>") 'sr-speedbar-toggle)
-;;(global-set-key (kbd "<f8>") 'neotree-toggle)
-
-(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "S-C-<down>") 'shrink-window)
-(global-set-key (kbd "S-C-<up>") 'enlarge-window)
-
-(define-key c++-mode-map (kbd "C-j") 'rtags-find-symbol-at-point)
-(define-key c++-mode-map (kbd "C-x j") 'moo-jump-local)
-
-(add-hook 'python-mode-hook
-          (lambda()
-            (local-set-key (kbd "C-j") 'jedi:goto-definition)))
-(add-hook 'python-mode-hook
-          (lambda()
-            (local-set-key (kbd "C-x j") 'helm-ag-this-file)))
-
-;;(define-key python-mode-map (kbd "C-x j") 'helm-ag-this-file)
-
-;; M-x ido-mode
-(global-set-key
- "\M-x"
- (lambda ()
-   (interactive)
-   (call-interactively
-    (intern
-     (ido-completing-read
-      "M-x "
-      (all-completions "" obarray 'commandp))))))
-
-(global-diff-hl-mode)
-(global-visual-line-mode)
-(require 'all-the-icons)
-(zerodark-setup-modeline-format)
-
-(tool-bar-mode -1)
-
-(require 'company-auctex)
-(company-auctex-init)
-
-(require 'auctex-latexmk)
-(auctex-latexmk-setup)
-(setq auctex-latexmk-inherit-TeX-PDF-mode t)
-
-(latex-preview-pane-enable)
-(flycheck-gometalinter-setup)
-
-  ;; Set the neo-window-width to the current width of the
-  ;; neotree window, to trick neotree into resetting the
-  ;; width back to the actual window width.
-  ;; Fixes: https://github.com/jaypei/emacs-neotree/issues/262
-  (eval-after-load "neotree"
-    '(add-to-list 'window-size-change-functions
-                  (lambda (frame)
-                    (let ((neo-window (neo-global--get-window)))
-                      (unless (null neo-window)
-                        (setq neo-window-width (window-width neo-window)))))))
-
-;;(setq auto-mode-alist (append '(("\\.html$" . web-mode))
-;;                              auto-mode-alist))
-;;(setq auto-mode-alist (append '(("\\.gohtml$" . web-mode))
-;;                              auto-mode-alist))
-(setq auto-mode-alist (append '(("\\.djhtml$" . web-mode))
-                              auto-mode-alist))
+(global-undo-tree-mode)
 
 
+(require 'srefactor)
+(require 'srefactor-lisp)
 
-;; Enable JavaScript completion between <script>...</script> etc.
-(advice-add 'company-tern :before
-            #'(lambda (&rest _)
-                (if (equal major-mode 'web-mode)
-                    (let ((web-mode-cur-language
-                          (web-mode-language-at-pos)))
-                      (if (or (string= web-mode-cur-language "javascript")
-                              (string= web-mode-cur-language "jsx"))
-                          (unless tern-mode (tern-mode))
-                        (if tern-mode (tern-mode -1)))))))
+;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++.
+(semantic-mode 1) ;; -> this is optional for Lisp
+
+(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+
+(global-visual-line-mode t)
+(setq-default indent-tabs-mode nil)
 
 
-(add-hook 'neo-after-create-hook
-   #'(lambda (_)
-       (with-current-buffer (get-buffer neo-buffer-name)
-         (setq truncate-lines t)
-         (setq word-wrap nil)
-         (make-local-variable 'auto-hscroll-mode)
-         (setq auto-hscroll-mode nil))))
+;; <cpputils-cmake>
 
-(require 'org)
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-
-(defhydra dumb-jump-hydra (global-map "<f5>")
-    "Dumb Jump"
-    ("j" dumb-jump-go "Go")
-    ("o" dumb-jump-go-other-window "Other window")
-    ("e" dumb-jump-go-prefer-external "Go external")
-    ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
-    ("i" dumb-jump-go-prompt "Prompt")
-    ("l" dumb-jump-quick-look "Quick look")
-    ("b" dumb-jump-back "Back"))
-
-(setenv "GOPATH"
-        (concat (getenv "HOME") "/go"))
-
-(setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (file-name-nondirectory buffer-file-name))
-                 "%b"))
-        (:eval (if (buffer-modified-p) 
-                   " •"))
-        " - Emacs")
-      )
-
-(setq neo-force-change-root t)
-
-(require 'meghanada)
-(add-hook 'java-mode-hook
+(add-hook 'c-mode-common-hook
           (lambda ()
-            ;; meghanada-mode on
-            (meghanada-mode t)
-            (flycheck-mode +1)
-            (setq c-basic-offset 2)
-            ;; use code format
-            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
-(cond
-   ((eq system-type 'windows-nt)
-    (setq meghanada-java-path (expand-file-name "bin/java.exe" (getenv "JAVA_HOME")))
-    (setq meghanada-maven-path "mvn.cmd"))
-   (t
-    (setq meghanada-java-path "java")
-    (setq meghanada-maven-path "mvn")))
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all)
+              )))
+;; OPTIONAL, somebody reported that they can use this package with Fortran
+(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
+;; OPTIONAL, avoid typing full path when starting gdb
+(global-set-key (kbd "C-c C-g")
+ '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
+;; OPTIONAL, some users need specify extra flags forwarded to compiler
+(setq cppcm-extra-preprocss-flags-from-user '("-I/usr/src/linux/include" "-DNDEBUG"))
 
-;; https://www.linuxquestions.org/questions/linux-general-1/how-to-make-mouse-wheel-scroll-one-line-at-a-time-in-emacs-814430/
-;; scroll one line at a time (less "jumpy" than defaults)
-    
-(setq mouse-wheel-scroll-amount '(3 ((shift) . 3))) ;; one line at a time
-    
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-    
-(setq mouse-wheel-follow-mouse 't) ;; scroll widow under mouse
+;; </cpputils-cmake>
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (c-set-offset 'arglist-intro '+)
+            (c-set-offset 'arglist-close 0)))
 
 
-(setq sr-speedbar-width 20)
+(add-hook 'c++-mode-hook #'lsp)
+(push 'company-lsp company-backends)
 
-(setq-default cursor-type 'bar) 
+(require 'ccls)
+(setq ccls-executable "/usr/bin/ccls")
 
-(elpy-enable)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
-(global-set-key (kbd "C-c m") 'mc/mark-next-like-this)
+;; initial window
+(setq initial-frame-alist
+      '(
+        (width . 138) ; character
+        (height . 40) ; lines
+        ))
+
+;; default/sebsequent window
+(setq default-frame-alist
+      '(
+        (width . 138) ; character
+        (height . 40) ; lines
+        ))
+
+(require 'all-the-icons)
+;; or
+(use-package all-the-icons)
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+(require 'company-box)
+(add-hook 'company-mode-hook 'company-box-mode)
+
+(setq company-box-icons-alist 'company-box-icons-all-the-icons)
+
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+;; Or if you use use-package
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+
+(projectile-mode +1)
