@@ -54,7 +54,7 @@ There are two things you can do about this warning:
 
 
 ;; ERGONOMIKUS BILLENTYŰ KIOSZTÁS
-
+;; Frissítsd a README-t, ha itt valamin változtatsz
 
 
 (bind-key* (kbd "C-s") 'save-buffer)
