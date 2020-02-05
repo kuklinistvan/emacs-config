@@ -28,6 +28,10 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  '(cmake-ide-flags-c++ "-j4")
  '(company-minimum-prefix-length 2)
+ '(custom-enabled-themes (quote (spacemacs-dark)))
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(helm-mode-fuzzy-match t)
  '(inhibit-startup-screen t)
  '(lsp-eldoc-render-all nil)
@@ -36,7 +40,7 @@ There are two things you can do about this warning:
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+    (diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
  '(treemacs-position (quote right)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -207,3 +211,5 @@ There are two things you can do about this warning:
                         (registers . 5)))
 
 (projectile-mode +1)
+(doom-modeline-mode 1)
+(global-diff-hl-mode)
