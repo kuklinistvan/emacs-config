@@ -42,7 +42,7 @@ There are two things you can do about this warning:
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+    (cpputils-cmake diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
  '(treemacs-position (quote right)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
