@@ -85,6 +85,7 @@ There are two things you can do about this warning:
 (bind-key* (kbd "C-v") 'yank)
 (bind-key* (kbd "C-x") 'kill-region)
 (bind-key* (kbd "C-c") 'kill-ring-save)
+(bind-key* (kbd "C-a") 'mark-whole-buffer)
 
 (bind-key* (kbd "C-n") 'make-frame-command)
 (bind-key* (kbd "C-o") 'find-file)
@@ -237,3 +238,5 @@ There are two things you can do about this warning:
 (projectile-mode +1)
 (doom-modeline-mode 1)
 (global-diff-hl-mode)
+
+(show-paren-mode)
