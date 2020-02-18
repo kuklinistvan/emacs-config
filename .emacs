@@ -64,7 +64,7 @@ There are two things you can do about this warning:
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (sublimity company-auctex auctex yasnippet json-mode flymake-json cpputils-cmake flyspell-lazy restart-emacs ranger diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+    (company-jedi sublimity company-auctex auctex yasnippet json-mode flymake-json cpputils-cmake flyspell-lazy restart-emacs ranger diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
  '(treemacs-position (quote right))
  '(visible-bell t))
  '(pdf-view-midnight-colors (quote ("#655370" . "#fbf8ef")))
@@ -247,3 +247,8 @@ There are two things you can do about this warning:
 (company-auctex-init)
 
 (add-hook 'LaTeX-mode-hook #'flymake-mode)
+
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
