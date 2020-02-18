@@ -64,8 +64,9 @@ There are two things you can do about this warning:
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (json-mode flymake-json cpputils-cmake flyspell-lazy restart-emacs ranger diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
- '(treemacs-position (quote right)))
+    (sublimity company-auctex auctex yasnippet json-mode flymake-json cpputils-cmake flyspell-lazy restart-emacs ranger diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+ '(treemacs-position (quote right))
+ '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -240,3 +241,7 @@ There are two things you can do about this warning:
 (global-diff-hl-mode)
 
 (show-paren-mode)
+
+(company-auctex-init)
+
+(add-hook 'LaTeX-mode-hook #'flymake-mode)
