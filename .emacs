@@ -247,3 +247,11 @@ There are two things you can do about this warning:
 (company-auctex-init)
 
 (add-hook 'LaTeX-mode-hook #'flymake-mode)
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (
+         ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
+
+(require 'multiple-cursors)
+
