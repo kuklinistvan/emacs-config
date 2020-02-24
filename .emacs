@@ -32,10 +32,10 @@ There are two things you can do about this warning:
    ["#d2ceda" "#f2241f" "#67b11d" "#b1951d" "#3a81c3" "#a31db1" "#21b8c7" "#655370"])
  '(cmake-ide-flags-c++ "-j4")
  '(company-minimum-prefix-length 2)
- '(custom-enabled-themes (quote (spacemacs-dark)))
+ '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("7aaee3a00f6eb16836f5b28bdccde9e1079654060d26ce4b8f49b56689c51904" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(dashboard-banner-logo-title "István's .emacs - codekuklin.com")
  '(dashboard-startup-banner "~/.emacs.d/ki_green.png")
  '(flycheck-gcc-language-standard "c++11")
@@ -64,7 +64,8 @@ There are two things you can do about this warning:
  '(lsp-prefer-flymake nil)
  '(package-selected-packages
    (quote
-    (sublimity company-auctex auctex yasnippet json-mode flymake-json cpputils-cmake flyspell-lazy restart-emacs ranger diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+    (zenburn-theme sublimity company-auctex auctex yasnippet json-mode flymake-json cpputils-cmake flyspell-lazy restart-emacs ranger diff-hl doom-modeline spacemacs-theme treemacs-magit lsp-treemacs treemacs-projectile treemacs helm-projectile realgud-lldb realgud dashboard company-box ## spaceline-all-the-icons all-the-icons bm lsp-ui ccls company-lsp lsp-mode function-args flycheck-clangcheck company-c-headers cmake-mode sr-speedbar projectile fzf dumb-jump helm-rtags flycheck-rtags company-rtags use-package srefactor undo-tree cmake-ide magit neotree helm-ag company-quickhelp company)))
+ '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(treemacs-position (quote right))
  '(visible-bell t))
  '(pdf-view-midnight-colors (quote ("#655370" . "#fbf8ef")))
