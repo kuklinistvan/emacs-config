@@ -35,7 +35,7 @@ There are two things you can do about this warning:
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("7aaee3a00f6eb16836f5b28bdccde9e1079654060d26ce4b8f49b56689c51904" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("0f0a4dca8bb029dc5139f447ff25bc3c18d31872c30a46d03c6bbc706ded3586" "7aaee3a00f6eb16836f5b28bdccde9e1079654060d26ce4b8f49b56689c51904" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(dashboard-banner-logo-title "István's .emacs - codekuklin.com")
  '(dashboard-startup-banner "~/.emacs.d/ki_green.png")
  '(flycheck-gcc-language-standard "c++11")
